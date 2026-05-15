@@ -172,12 +172,12 @@ Returns personalized recommendations.
 {
 "user_id": 1,
 "feedback": "Strong performance in Python, ML. Needs improvement in SQL."
-}
 
 ---
 
-# 📈 Future Improvements
--LLM-based AI feedback system
--Real-time dashboards
--Authentication system
--Advanced ML-based analytics
+## 📈 Future Improvements
+
+- LLM-based AI feedback system  
+- Real-time dashboards  
+- Authentication system  
+- Advanced ML-based analytics  
