@@ -10,12 +10,12 @@ This project demonstrates **data engineering, backend API design, analytics engi
 
 The platform simulates an online assessment system where:
 
-1. Users take tests
-2. Responses are stored in PostgreSQL
-3. SQL queries analyze performance
-4. FastAPI exposes analytics endpoints
-5. Streamlit visualizes insights
-6. Rule-based logic generates personalized feedback
+1. Users take tests  
+2. Responses are stored in PostgreSQL  
+3. SQL queries analyze performance  
+4. FastAPI exposes analytics endpoints  
+5. Streamlit visualizes insights  
+6. Rule-based logic generates personalized feedback  
 
 ---
 
@@ -30,11 +30,11 @@ The platform simulates an online assessment system where:
 - Each answer is stored as a response
 
 ### 2. Data Storage
-- PostgreSQL stores:
-  - users
-  - tests
-  - test_sessions
-  - test_responses
+PostgreSQL stores:
+- users
+- tests
+- test_sessions
+- test_responses
 
 ### 3. Analytics Layer
 SQL queries compute:
@@ -48,17 +48,17 @@ SQL queries compute:
 - Used by frontend/dashboard
 
 ### 5. Visualization Layer (Streamlit)
-- Displays:
-  - KPIs
-  - charts
-  - user performance
-  - insights
+Displays:
+- KPIs
+- charts
+- user performance
+- insights
 
 ### 6. Recommendation Engine
-- Rule-based logic generates feedback:
-  - weak topics
-  - strong topics
-  - improvement suggestions
+Rule-based logic generates feedback:
+- weak topics
+- strong topics
+- improvement suggestions
 
 ---
 
@@ -114,21 +114,21 @@ This simulates early-stage AI systems used in startups before integrating LLMs.
 
 # 🗃️ Database Schema
 
-### users
+## users
 - id
 - name
 - email
 
-### tests
+## tests
 - id
 - name
 
-### test_sessions
+## test_sessions
 - id
 - user_id
 - test_id
 
-### test_responses
+## test_responses
 - id
 - session_id
 - question_id
@@ -141,27 +141,17 @@ This simulates early-stage AI systems used in startups before integrating LLMs.
 # 🚀 API Endpoints
 
 ## 📍 Overall Accuracy
-
 Returns overall performance across all users.
 
----
-
 ## 📍 Topic Accuracy
-
 Returns accuracy grouped by topic.
 
----
-
 ## 📍 User Performance
-
 Returns:
 - accuracy
 - average time spent
 
----
-
 ## 📍 AI Feedback
-
 Returns personalized recommendations.
 
 ---
@@ -170,14 +160,16 @@ Returns personalized recommendations.
 
 ```json
 {
-"user_id": 1,
-"feedback": "Strong performance in Python, ML. Needs improvement in SQL."
+  "user_id": 1,
+  "feedback": "Strong performance in Python, ML. Needs improvement in SQL."
+}
+```
 
 ---
 
-## 📈 Future Improvements
+# 🚀 Future Improvements
 
-- LLM-based AI feedback system  
-- Real-time dashboards  
-- Authentication system  
-- Advanced ML-based analytics  
+- LLM-based AI feedback system
+- Real-time dashboards
+- Authentication system
+- Advanced ML-based analytics
