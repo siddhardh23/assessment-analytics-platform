@@ -9,12 +9,18 @@ st.set_page_config(
 
 st.title("📊 EduTest Analytics Dashboard")
 
-# -----------------------------
+# -----------------------------------
+# API BASE URL
+# -----------------------------------
+
+API_URL = "https://assessment-analytics-platform.onrender.com"
+
+# -----------------------------------
 # OVERALL KPI
-# -----------------------------
+# -----------------------------------
 
 overall = requests.get(
-    "http://127.0.0.1:8000/kpi/overall"
+    f"{API_URL}/kpi/overall"
 ).json()
 
 st.metric(
@@ -22,14 +28,14 @@ st.metric(
     value=f"{overall['overall_accuracy']} %"
 )
 
-# -----------------------------
+# -----------------------------------
 # TOPIC PERFORMANCE
-# -----------------------------
+# -----------------------------------
 
 st.subheader("Topic-wise Accuracy")
 
 topics = requests.get(
-    "http://127.0.0.1:8000/kpi/topics"
+    f"{API_URL}/kpi/topics"
 ).json()
 
 df_topics = pd.DataFrame(topics)
@@ -38,9 +44,9 @@ st.bar_chart(
     df_topics.set_index("topic")
 )
 
-# -----------------------------
+# -----------------------------------
 # USER ANALYTICS
-# -----------------------------
+# -----------------------------------
 
 st.subheader("User Performance")
 
@@ -52,7 +58,7 @@ user_id = st.number_input(
 )
 
 user_perf = requests.get(
-    f"http://127.0.0.1:8000/user/{user_id}/performance"
+    f"{API_URL}/user/{user_id}/performance"
 ).json()
 
 col1, col2 = st.columns(2)
@@ -67,14 +73,14 @@ col2.metric(
     f"{user_perf['avg_time_spent']} sec"
 )
 
-# -----------------------------
+# -----------------------------------
 # AI FEEDBACK
-# -----------------------------
+# -----------------------------------
 
 st.subheader("AI Feedback")
 
 feedback = requests.get(
-    f"http://127.0.0.1:8000/user/{user_id}/feedback"
+    f"{API_URL}/user/{user_id}/feedback"
 ).json()
 
 st.success(

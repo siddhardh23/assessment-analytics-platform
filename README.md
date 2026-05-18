@@ -1,162 +1,125 @@
 # 📊 Assessment Analytics Platform
 
-An end-to-end **data analytics + backend + dashboard system** that simulates a real-world SaaS assessment platform where users take tests, and their performance is analyzed using SQL-based analytics and rule-based recommendation logic.
+A cloud-deployed analytics platform that simulates a real-world assessment system where user test performance is processed, analyzed, and exposed through REST APIs and interactive dashboards.
 
-This project demonstrates **data engineering, backend API design, analytics engineering, and dashboard development**.
-
----
-
-# 🧠 System Overview
-
-The platform simulates an online assessment system where:
-
-1. Users take tests  
-2. Responses are stored in PostgreSQL  
-3. SQL queries analyze performance  
-4. FastAPI exposes analytics endpoints  
-5. Streamlit visualizes insights  
-6. Rule-based logic generates personalized feedback  
+The project demonstrates backend analytics workflows, SQL-based KPI generation, API development, dashboard visualization, and rule-based recommendation logic.
 
 ---
 
-# 🔄 Architecture / Workflow
+# 🚀 Live API
+
+🔗 https://assessment-analytics-platform.onrender.com
+
+API Documentation:
+
+🔗 https://assessment-analytics-platform.onrender.com/docs
 
 ---
 
-# 📌 Data Flow Explanation
+# 📸 Screenshots
 
-### 1. User Interaction
-- Users take assessments
-- Each answer is stored as a response
+## Dashboard
 
-### 2. Data Storage
-PostgreSQL stores:
-- users
-- tests
-- test_sessions
-- test_responses
+![Dashboard](screenshots/dashboard.png)
 
-### 3. Analytics Layer
-SQL queries compute:
-- accuracy per topic
-- overall performance
-- time spent per question
-- weak & strong areas
+## API Documentation
 
-### 4. API Layer (FastAPI)
-- Exposes analytics as JSON endpoints
-- Used by frontend/dashboard
+![API Docs](screenshots/api-docs.png)
 
-### 5. Visualization Layer (Streamlit)
-Displays:
-- KPIs
-- charts
-- user performance
-- insights
+## Example API Response
 
-### 6. Recommendation Engine
-Rule-based logic generates feedback:
-- weak topics
-- strong topics
-- improvement suggestions
+![API Response](screenshots/api-response.png)
+
+---
+
+# 🧠 System Workflow
+
+```text
+Users/Test Responses
+        ↓
+PostgreSQL Database (Neon)
+        ↓
+SQL Analytics Processing
+        ↓
+FastAPI Backend APIs
+        ↓
+Streamlit Dashboard
+        ↓
+Rule-Based Feedback Engine
+```
 
 ---
 
 # ⚙️ Tech Stack
 
-- 🐍 Python
-- ⚡ FastAPI
-- 🗄️ PostgreSQL
-- 🔗 SQLAlchemy
-- 📊 Streamlit
-- 📦 Uvicorn
-- 🧪 Faker (for synthetic data generation)
+- Python
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Streamlit
+- Uvicorn
+- Faker
+- Render
+- Neon PostgreSQL
 
 ---
 
-# 📊 Key Features
+# 📊 Core Features
 
-## 📌 Analytics Engine
-- Topic-wise performance tracking
+## Analytics Engine
+- Topic-wise performance analysis
 - Overall accuracy calculation
-- Time spent analysis
-- User-level KPIs
+- User-level KPI tracking
+- Average time spent analysis
 
-## 📌 REST APIs
+## REST APIs
 - `/kpi/overall`
 - `/kpi/topics`
 - `/user/{id}/performance`
 - `/user/{id}/feedback`
 
-## 📌 Dashboard
-- Interactive Streamlit dashboard
-- Real-time KPI visualization
-- User performance breakdown
+## Dashboard & Visualization
+- Interactive KPI dashboard
+- Performance charts
+- User analytics visualization
+- Personalized insights
 
-## 📌 Recommendation System
-- Rule-based feedback engine
-- Weak topic detection (<60% accuracy)
-- Strong topic identification
+## Recommendation Engine
+- Rule-based feedback generation
+- Weak topic detection
 - Personalized improvement suggestions
-
----
-
-# 🧠 AI / Recommendation Logic
-
-This project uses a **rule-based intelligent system**:
-
-- If accuracy < 60% → weak area
-- If accuracy ≥ 60% → strong area
-
-This simulates early-stage AI systems used in startups before integrating LLMs.
 
 ---
 
 # 🗃️ Database Schema
 
 ## users
-- id
-- name
-- email
+Stores user information.
 
 ## tests
-- id
-- name
+Stores assessment details.
 
 ## test_sessions
-- id
-- user_id
-- test_id
+Tracks user test attempts.
 
 ## test_responses
-- id
-- session_id
-- question_id
-- topic
-- is_correct
-- time_spent
+Stores question-level responses, accuracy, and time spent.
 
 ---
 
-# 🚀 API Endpoints
+# 🔍 Key Concepts Implemented
 
-## 📍 Overall Accuracy
-Returns overall performance across all users.
-
-## 📍 Topic Accuracy
-Returns accuracy grouped by topic.
-
-## 📍 User Performance
-Returns:
-- accuracy
-- average time spent
-
-## 📍 AI Feedback
-Returns personalized recommendations.
+- Relational database design
+- SQL aggregations and joins
+- KPI analytics
+- REST API development
+- Backend-to-dashboard integration
+- Cloud deployment workflows
+- Rule-based recommendation systems
 
 ---
 
-# 📈 Example Output
+# 📈 Example API Response
 
 ```json
 {
@@ -167,9 +130,20 @@ Returns personalized recommendations.
 
 ---
 
+# ☁️ Deployment
+
+## Backend
+Deployed using Render.
+
+## Database
+Hosted using Neon PostgreSQL.
+
+---
+
 # 🚀 Future Improvements
 
-- LLM-based AI feedback system
-- Real-time dashboards
-- Authentication system
-- Advanced ML-based analytics
+- LLM-based AI feedback generation
+- Authentication & user management
+- Advanced ML-based recommendations
+- Real-time analytics pipelines
+- Docker containerization
